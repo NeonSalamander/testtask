@@ -99,9 +99,6 @@ with smtplib.SMTP('адрес почтового сервера', port) as serve
     print("Успешная отправка")
 ```	
 	
-	
-## 10, 11 задачи не пойму что это, доступов нет
-
 
 ## Что выведет следующий код? 	
 Выведет 23, значение переменной а
@@ -119,4 +116,20 @@ print(files)
 l = [1, 2, 3, 4, 5, 6]
 res = list(map(lambda x: x ** 2, l))
 print(res)
+```
+
+## Вам необходимо подключиться к бд Oracle и вывести пять первых строчек из таблицы clients схемы risk_management
+обычно и как правило использую ORM но в случаях когда нужны сложные запросы на которых ORM может вести себя не так как надо
+можно использовать нативные sql запросы
+```
+import cx_Oracle
+
+dsn = cx_Oracle.makedsn('10.95.23.432', 777, service_name='prod')
+conn = cx_Oracle.connect(user=r'akr', password='123', dsn=dsn)
+
+c = conn.cursor()
+c.execute('select * from risk_management.clients FETCH NEXT 5 ROWS ONLY;')
+for row in c:
+    print (row)
+conn.close()
 ```
