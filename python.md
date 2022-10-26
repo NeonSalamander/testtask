@@ -134,11 +134,11 @@ for row in c:
 conn.close()
 ```
 
-## У вас есть доступ к API (ссылка на него "http://10.23.10.67:9201/extraction_inf"), которое в качестве аргументов запроса принимает JSON со следующими параметрами: user_name и data_type. Вы хотите получить информацию о пользователе "Ivan Ivanov" с типом "AG_INF" (вывести raw data)
+## У вас есть доступ к API (ссылка на него "ссылка"), которое в качестве аргументов запроса принимает JSON со следующими параметрами: user_name и data_type. Вы хотите получить информацию о пользователе "Ivan Ivanov" с типом "AG_INF" (вывести raw data)
 
 ```
 import requests
-url = 'http://10.23.10.67:9201/extraction_inf'
+url = 'http://ссылка:9201/extraction_inf'
 param = {'user_name': 'Ivan Ivanov',
          'data_type': 'AG_INF'}
 resp = requests.post(url, json=param)
